@@ -1,0 +1,43 @@
+spring:
+  web:
+    resources:
+      # 配置静态资源访问目录（部署到服务器后使用的物理目录）
+      # 访问地址如：https://yourdomain.com/xxx.jpg 会映射到这个目录下的文件
+      static-locations: 上线版地址，不填也行
+
+  datasource:
+    # 数据库连接配置（使用 MySQL 本地 test_2 库）
+    url: jdbc:mysql://localhost:3306/你的数据库名字?useSSL=false&serverTimezone=Asia/Shanghai
+    username: 
+    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # 自动建表或更新表结构（建议生产改为 validate）
+    show-sql: true       # 控制台打印 SQL 语句
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect  # 指定方言为 MySQL 8.x
+
+upload:
+  # 自定义上传文件保存的本地目录路径（相对于项目路径或绝对路径）
+  # 本地开发：src/main/resources/static/uploads
+  # 服务器部署：如 
+  local-path: src/main/resources/static/uploads
+
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: 123456
+    key-store-type: PKCS12
+    key-alias: tomcat
+  tomcat:
+    max-http-form-post-size: -1
+    max-swallow-size: -1
+    max-http-header-size: 8192
+
+# ✅ 自定义应用域名配置（用于文件 URL 拼接）
+app:
+  domain: https://momosongqing.xyz:8443
