@@ -48,7 +48,9 @@
 ┗ 📄 vite.config.ts
 
 ---
-
+##
+技术交流
+![qq_pic_merged_1748932172313](https://github.com/user-attachments/assets/081dbbb6-3c75-4beb-8779-1d13e6afe341)
 ## 🛠️ 使用说明
 
 ### 前端启动：
